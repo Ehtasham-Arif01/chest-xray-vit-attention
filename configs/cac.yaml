@@ -1,0 +1,77 @@
+# CAC configuration (Clinical Attention Consistency)
+
+model:
+  name: "vit_base_patch16_224"
+  pretrained: true
+  num_classes: 14
+  freeze_blocks: 8
+  dropout: 0.3
+  attention_extraction: true  # Extract attention maps
+
+data:
+  nih_path: "data/nih/"
+  chexpert_path: "data/chexpert/"
+  bbox_path: "data/nih/bbox/"  # Path to bounding box annotations
+  image_size: 224
+  batch_size: 32
+  num_workers: 4
+  pin_memory: true
+  use_bbox_sampling: true  # Oversample images with bboxes
+  bbox_sampling_weight: 3.0  # Weight for bbox samples
+  augmentations:
+    random_rotation: 10
+    random_zoom: 0.1
+    horizontal_flip: 0.5
+    brightness: 0.2
+    contrast: 0.2
+
+training:
+  epochs: 10
+  lr_backbone: 1.0e-5
+  lr_head: 1.0e-4
+  weight_decay: 0.01
+  scheduler: "cosine"
+  scheduler_params:
+    T_max: 10
+    eta_min: 1.0e-7
+  early_stopping_patience: 3
+  gradient_clip: 1.0
+  mixed_precision: true
+
+loss:
+  name: "cac"  # Use CAC loss
+  cac_weight: 0.5
+  cac_mse_reduction: "mean"  # mean, sum, none
+  pos_weight: true
+  label_smoothing: 0.0
+
+evaluation:
+  metrics: ["auc", "sensitivity", "specificity"]
+  cross_hospital: true
+  per_disease_analysis: true
+  attention_quality_metrics: true
+
+visualization:
+  save_attention_maps: true
+  save_attention_comparison: true
+  save_confusion_matrix: true
+  save_roc_curves: true
+  log_interval: 10
+  attention_threshold: 0.5
+
+logging:
+  log_dir: "logs/cac/"
+  checkpoint_dir: "models/checkpoints/cac/"
+  save_best: true
+  save_last: true
+  tensorboard: true
+  wandb:
+    project: "vit-chest-xray-cac"
+    entity: null
+    tags: ["cac", "nih", "chexpert", "attention_supervision"]
+
+system:
+  device: "cuda"
+  seed: 42
+  deterministic: false
+  benchmark: true

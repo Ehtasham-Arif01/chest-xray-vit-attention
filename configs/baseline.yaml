@@ -1,0 +1,65 @@
+# Baseline configuration (no CAC loss)
+
+model:
+  name: "vit_base_patch16_224"
+  pretrained: true
+  num_classes: 14
+  freeze_blocks: 8
+  dropout: 0.3
+  attention_extraction: false  # Don't extract attention
+
+data:
+  nih_path: "data/nih/"
+  chexpert_path: "data/chexpert/"
+  image_size: 224
+  batch_size: 32
+  num_workers: 4
+  pin_memory: true
+  augmentations:
+    random_rotation: 10
+    random_zoom: 0.1
+    horizontal_flip: 0.5
+    brightness: 0.2
+    contrast: 0.2
+
+training:
+  epochs: 10
+  lr_backbone: 1.0e-5
+  lr_head: 1.0e-4
+  weight_decay: 0.01
+  scheduler: "cosine"
+  scheduler_params:
+    T_max: 10
+    eta_min: 1.0e-7
+  early_stopping_patience: 3
+  gradient_clip: 1.0
+  mixed_precision: true
+
+loss:
+  name: "bce"  # Just BCE loss, no CAC
+  cac_weight: 0.0
+  pos_weight: true
+
+evaluation:
+  metrics: ["auc", "sensitivity", "specificity"]
+  cross_hospital: true
+  per_disease_analysis: true
+
+visualization:
+  save_attention_maps: false
+  save_confusion_matrix: true
+  save_roc_curves: true
+  log_interval: 10
+
+logging:
+  log_dir: "logs/baseline/"
+  checkpoint_dir: "models/checkpoints/baseline/"
+  save_best: true
+  save_last: true
+  tensorboard: true
+
+system:
+  device: "cuda"
+  seed: 42
+  deterministic: false
+  benchmark: true

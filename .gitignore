@@ -1,0 +1,295 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.dll
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+cover/
+
+# Translations
+*.mo
+*.pot
+
+# Django stuff:
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+
+# Flask stuff:
+instance/
+.webassets-cache
+
+# Scrapy stuff:
+.scrapy
+
+# Sphinx documentation
+docs/_build/
+
+# PyBuilder
+.pybuilder/
+target/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb
+*.ipynb_checkpoints
+*/.ipynb_checkpoints/*
+
+# IPython
+profile_default/
+ipython_config.py
+
+# pyenv
+.python-version
+
+# pipenv
+Pipfile.lock
+
+# poetry
+poetry.lock
+
+# pdm
+.pdm.toml
+
+# PEP 582
+__pypackages__/
+
+# Celery stuff
+celerybeat-schedule
+celerybeat.pid
+
+# SageMath parsed files
+*.sage.py
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+pythonenv*
+
+# Spyder project settings
+.spyderproject
+.spyproject
+
+# Rope project settings
+.ropeproject
+
+# mkdocs documentation
+/site
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# pytype static type analyzer
+.pytype/
+
+# Cython debug symbols
+cython_debug/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Desktop.ini
+
+# Data directories (large files)
+data/
+data_raw/
+raw_data/
+processed_data/
+nih/
+chexpert/
+
+# Model files (may be large - use Git LFS if needed)
+models/
+*.pth
+*.pt
+*.ckpt
+*.pkl
+*.joblib
+*.h5
+*.hdf5
+*.pb
+*.onnx
+
+# Results and outputs
+results/
+outputs/
+logs/
+wandb/
+mlruns/
+tensorboard_logs/
+
+# Kaggle
+.kaggle/
+kaggle.json
+
+# TensorFlow
+*.pb
+*.meta
+*.index
+*.data-*
+*.pb
+
+# PyTorch
+*.pth.tar
+
+# Environment specific
+.env.local
+.env.development
+.env.production
+
+# Secrets
+*.key
+*.pem
+*.crt
+secrets/
+credentials.json
+*.p12
+
+# OS specific
+Thumbs.db
+ehthumbs.db
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Linux
+*~
+.directory
+
+# Windows
+$RECYCLE.BIN/
+*.lnk
+
+# Backup files
+*.bak
+*.backup
+*.old
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+*.cache
+
+# Jupyter extensions
+jupyter_notebook_config.py
+
+# VS Code specific
+.vscode/settings.json
+.vscode/tasks.json
+.vscode/launch.json
+.vscode/extensions.json
+*.code-workspace
+
+# IntelliJ / PyCharm
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+*~
+.undo
+tags
+
+# Emacs
+*~
+\#*\#
+.\#*
+
+# Git
+*.orig
+.gitconfig.local
+
+# Docker
+.docker/
+docker-compose.override.yml
+
+# Large data files
+*.csv
+*.npy
+*.npz
+*.parquet
+*.feather
+
+# Video/Audio (not relevant for this project)
+*.mp4
+*.avi
+*.mov
+*.wav
+*.mp3
+
+# Archive files
+*.zip
+*.tar
+*.tar.gz
+*.rar
+*.7z
