@@ -1,0 +1,40 @@
+{
+  "project": "Chest X-Ray ViT with CAC Loss",
+  "dataset": "NIH Chest X-Ray 112120 images 14 diseases",
+  "model": "ViT-B/16 pretrained ImageNet fine-tuned",
+  "baseline_nih_test_auc": 0.7664,
+  "cac_chexpert_auc": 0.7236,
+  "early_chexpert_auc": 0.7218,
+  "improvement": 0.0018,
+  "diseases_improved": "5 out of 7 on CheXpert",
+  "per_disease_chexpert": {
+    "Atelectasis": {
+      "early": 0.755,
+      "cac": 0.774
+    },
+    "Cardiomegaly": {
+      "early": 0.607,
+      "cac": 0.691
+    },
+    "Effusion": {
+      "early": 0.749,
+      "cac": 0.79
+    },
+    "Pneumonia": {
+      "early": 0.637,
+      "cac": 0.561
+    },
+    "Pneumothorax": {
+      "early": 0.754,
+      "cac": 0.642
+    },
+    "Consolidation": {
+      "early": 0.776,
+      "cac": 0.797
+    },
+    "Edema": {
+      "early": 0.775,
+      "cac": 0.81
+    }
+  }
+}
